@@ -10,18 +10,40 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
-    var breads: [String] = ["Abyssinian", "Aegean", "American Bobtail"]
+    var breads = [Bread]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
+        JSON()
     }
     
     func setup() {
         title = "CatzApp"
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func JSON() {
+        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds?") else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                do {
+                    let decodedJson = try JSONDecoder().decode([Bread].self, from: data)
+                    DispatchQueue.main.async {
+                        self.breads.append(contentsOf: decodedJson)
+                        self.tableView.reloadData()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        task.resume()
     }
 }
 
@@ -32,7 +54,7 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = breads[indexPath.row]
+        cell.textLabel?.text = breads[indexPath.row].name
         return cell
     }
 }
