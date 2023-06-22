@@ -14,6 +14,7 @@
 		7B20E43F2A42E3B20051CBC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B20E43E2A42E3B20051CBC8 /* Assets.xcassets */; };
 		7B20E4422A42E3B20051CBC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B20E4402A42E3B20051CBC8 /* LaunchScreen.storyboard */; };
 		7B20E44A2A42FA340051CBC8 /* Bread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B20E4492A42FA340051CBC8 /* Bread.swift */; };
+		7B52D6DA2A44986E00BB524F /* CatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B52D6D92A44986E00BB524F /* CatDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7B20E4412A42E3B20051CBC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B20E4432A42E3B20051CBC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B20E4492A42FA340051CBC8 /* Bread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bread.swift; sourceTree = "<group>"; };
+		7B52D6D92A44986E00BB524F /* CatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				7B20E4352A42E3B00051CBC8 /* AppDelegate.swift */,
 				7B20E4372A42E3B00051CBC8 /* SceneDelegate.swift */,
 				7B20E4392A42E3B00051CBC8 /* ViewController.swift */,
+				7B52D6D92A44986E00BB524F /* CatDetailViewController.swift */,
 				7B20E4492A42FA340051CBC8 /* Bread.swift */,
 				7B20E43B2A42E3B00051CBC8 /* Main.storyboard */,
 				7B20E43E2A42E3B20051CBC8 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B20E44A2A42FA340051CBC8 /* Bread.swift in Sources */,
+				7B52D6DA2A44986E00BB524F /* CatDetailViewController.swift in Sources */,
 				7B20E43A2A42E3B00051CBC8 /* ViewController.swift in Sources */,
 				7B20E4362A42E3B00051CBC8 /* AppDelegate.swift in Sources */,
 				7B20E4382A42E3B00051CBC8 /* SceneDelegate.swift in Sources */,

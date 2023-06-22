@@ -61,7 +61,14 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tap")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "catDetailVC") as! CatDetailViewController
+        vc.catID = breads[indexPath.row].id
+        vc.catName = breads[indexPath.row].name
+        vc.catTemperament = breads[indexPath.row].temperament
+        vc.carOrigin = breads[indexPath.row].origin
+        vc.catDescription = breads[indexPath.row].description
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
