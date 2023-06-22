@@ -10,7 +10,6 @@ import UIKit
 class CatDetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var idLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var temperamentLabel: UILabel!
     @IBOutlet var originLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -26,10 +25,20 @@ class CatDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        idLabel.text = catID
-        nameLabel.text = catName
-        temperamentLabel.text = catTemperament
-        originLabel.text = carOrigin
+        title = catName
+
+        if let id = catID {
+            idLabel.text = "ID: \(id)"
+        }
+        
+        if let temp = catTemperament {
+            temperamentLabel.text = "Temperament: \(temp)"
+        }
+
+        if let origin = carOrigin {
+            originLabel.text = "Origin: \(origin)"
+        }
+
         descriptionLabel.text = catDescription
     }
 
