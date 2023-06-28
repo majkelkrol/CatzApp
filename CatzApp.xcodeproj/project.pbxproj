@@ -64,16 +64,40 @@
 			children = (
 				7B20E4352A42E3B00051CBC8 /* AppDelegate.swift */,
 				7B20E4372A42E3B00051CBC8 /* SceneDelegate.swift */,
-				7B20E4392A42E3B00051CBC8 /* ViewController.swift */,
-				7B52D6D92A44986E00BB524F /* CatDetailViewController.swift */,
-				7B20E4492A42FA340051CBC8 /* Bread.swift */,
-				7B3122E72A4C2785008CCAC7 /* BreadImage.swift */,
-				7B20E43B2A42E3B00051CBC8 /* Main.storyboard */,
+				7B3122EB2A4C2D76008CCAC7 /* Model */,
+				7B3122E92A4C2D56008CCAC7 /* View */,
+				7B3122EA2A4C2D65008CCAC7 /* Controller */,
 				7B20E43E2A42E3B20051CBC8 /* Assets.xcassets */,
 				7B20E4402A42E3B20051CBC8 /* LaunchScreen.storyboard */,
 				7B20E4432A42E3B20051CBC8 /* Info.plist */,
 			);
 			path = CatzApp;
+			sourceTree = "<group>";
+		};
+		7B3122E92A4C2D56008CCAC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B20E43B2A42E3B00051CBC8 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B3122EA2A4C2D65008CCAC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7B20E4392A42E3B00051CBC8 /* ViewController.swift */,
+				7B52D6D92A44986E00BB524F /* CatDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7B3122EB2A4C2D76008CCAC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B20E4492A42FA340051CBC8 /* Bread.swift */,
+				7B3122E72A4C2785008CCAC7 /* BreadImage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
