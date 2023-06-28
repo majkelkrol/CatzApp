@@ -10,40 +10,27 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
+    var networkingmanager = NetworkingManager()
     var breads = [Bread]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        JSON()
     }
     
     func setup() {
         title = "CatzApp"
         tableView.dataSource = self
         tableView.delegate = self
-    }
-    
-    func JSON() {
-        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds?") else {
-            return
-        }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let decodedJson = try JSONDecoder().decode([Bread].self, from: data)
-                    DispatchQueue.main.async {
-                        self.breads.append(contentsOf: decodedJson)
-                        self.tableView.reloadData()
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
+        networkingmanager.getBread { bread in
+            DispatchQueue.main.async {
+                self.breads.append(contentsOf: bread)
+                self.tableView.reloadData()
             }
         }
-        task.resume()
     }
 }
 
@@ -71,4 +58,3 @@ extension ViewController: UITableViewDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-

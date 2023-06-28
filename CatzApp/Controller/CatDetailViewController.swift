@@ -21,6 +21,7 @@ class CatDetailViewController: UIViewController {
     var carOrigin: String?
     var catDescription: String?
     
+    var networkingManager = NetworkingManager()
     var url = [BreadImage]()
     var urlId: String?
     var urlString: String?
@@ -50,42 +51,19 @@ class CatDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        setURL(id: catID ?? "nil")
+        networkingManager.getBreadImage(id: catID ?? "nil") { breadImage in
+            DispatchQueue.main.async {
+                if let decodedImage = breadImage.last?.url  {
+                    self.urlImage = decodedImage
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         imageView.load(urlImage)
-    }
-    
-    func setURL(id: String) {
-        urlId = "https://api.thecatapi.com/v1/images/search?breed_ids=\(id)"
-        imgJson()
-    }
-    
-    func imgJson() {
-        guard let url = URL(string: urlId ?? "nil") else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    if let decodedJson = try? JSONDecoder().decode([BreadImage].self, from: data) {
-                        DispatchQueue.main.async {
-                            if let decodedImage = decodedJson.last?.url  {
-                                self.urlImage = decodedImage
-                            }
-                        }
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-        task.resume()
-        
     }
 }
 
